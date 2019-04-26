@@ -1,10 +1,12 @@
 import React from 'react';
-import DATA from '../data';
-
-const ListOfEmployee = (props) => (
-    <p>{props.selectedEmployee}</p>
-    // DATA.map((item)=>(
-    //     <p>{item.id} {item.first_name} {item.last_name} {item.gender} {item.email}</p>
-    // ))
-);
-export default ListOfEmployee;
+import CardExampleCardProps from './list_style'
+//const DATA = require('./MOCK_DATA.json');
+//import DATA from './data.js'
+class SingleEmployee extends React.Component{
+    render(){
+    return this.props.data.map((item)=>(
+        <CardExampleCardProps id = {item.id} first_name={item.first_name} last_name ={item.last_name} email = {item.email} gender = {item.gender} ip_address = {item.ip_address}/>
+    ))
+    }
+}
+export default SingleEmployee;
