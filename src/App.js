@@ -1,7 +1,7 @@
 import React from 'react';
 import PaginationComponent from './components/pagination';
 import SearchBar from './components/searchbar';
-import Employee from './components/employee';
+//import Employee from './components/employee';
 import DATA from './data.js';
 class App extends React.Component {
   constructor(props){
@@ -11,17 +11,18 @@ class App extends React.Component {
   }
 }
 
+
 employeeSearch = (term) => {
   let employee={}
    // console.log(employees);
    console.log('this',this)
-   console.log(DATA);
+   console.log(DATA.EmployeeDetails);
    //console.log(this.employees.length)
-    for(let i=0;i<DATA.length;i++){
-      console.log('employees id',typeof(DATA[i].id))
+    for(let i=0;i<DATA.EmployeeDetails.length;i++){
+      console.log('employees id',typeof(DATA.EmployeeDetails[i].id))
       console.log('entered term',typeof(term))
-      if(DATA[i].id === parseInt(term)){
-      employee=DATA[i];
+      if(DATA.EmployeeDetails[i].id === parseInt(term)){
+      employee=DATA.EmployeeDetails[i];
       console.log('entered')
       }
     }
@@ -36,9 +37,12 @@ render()
   //console.log('name',this.state.selectedemployee.first_name);
     return ( 
       <React.Fragment>
-        <SearchBar onSearchTermChange={this.employeeSearch} />
-        <Employee details={[this.state.selectedemployee.first_name]}/>
-        <PaginationComponent  data = {DATA}/>   
+        <SearchBar
+         onSearchTermChange={this.employeeSearch} 
+         onResultChange={this.state.selectedemployee.first_name}
+         />
+        {/* <Employee details={[this.state.selectedemployee.first_name]} */}
+        <PaginationComponent  data = {DATA.EmployeeDetails}/>   
       </React.Fragment>
      )
 }

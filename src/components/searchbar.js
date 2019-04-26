@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {Search} from 'semantic-ui-react';
 
 class SearchBar extends Component {
     state = { 
@@ -12,9 +12,11 @@ class SearchBar extends Component {
     render() { 
         return ( 
             <div className="search-bar">
-                <input
+                <Search
+                    style = {{'margin': '30px 0px 0px 200px'}}
                     value = {this.state.id} 
-                    onChange = {(event) => this.onInputChange(event.target.value)} 
+                    onSearchChange = {(event) => this.onInputChange(event.target.value)} 
+                    results = {this.props.onResultChange}
                 />
             </div>
          );

@@ -4,7 +4,8 @@ import SingleEmployee from './list';
 class PaginationComponent extends Component {
   state ={
     activePage:1,
-    data:[[{"id":0,"first_name":"","last_name":"","email":"ctohill0@google.nl","gender":"Female","ip_address":"3.92.152.151"}]]
+    data: this.props.data.filter(data => (data.id>=1 && data.id<=20)),
+    // data:[[{"id":0,"first_name":"","last_name":"","email":"ctohill0@google.nl","gender":"Female","ip_address":"3.92.152.151"}]]
   }
   //axios.get('localhost:3000/id')
   handlePaginationChange = (e, { activePage }) => {
@@ -21,6 +22,8 @@ class PaginationComponent extends Component {
     return (
         <div>
           <Pagination
+          style={{'margin-left': '90px',
+          'margin-top': '30px' }}
             activePage = {activePage}
             onPageChange={this.handlePaginationChange}
             totalPages={50}

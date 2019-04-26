@@ -17,6 +17,8 @@ const CardExampleCardProps = (props) => {
   return(
   <div>
     <Card
+      style={{'margin-left': '180px',
+      'margin-top' : '30px' }}
       header= {props.first_name}
       meta={props.id}
       description= {props.email}

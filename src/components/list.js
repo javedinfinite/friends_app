@@ -5,7 +5,14 @@ import CardExampleCardProps from './list_style'
 class SingleEmployee extends React.Component{
     render(){
     return this.props.data.map((item)=>(
-        <CardExampleCardProps id = {item.id} first_name={item.first_name} last_name ={item.last_name} email = {item.email} gender = {item.gender} ip_address = {item.ip_address}/>
+        <CardExampleCardProps 
+            id = {item.id} 
+            first_name={item.first_name} 
+            last_name ={item.last_name} 
+            email = {item.email} 
+            gender = {item.gender} 
+            ip_address = {item.ip_address}
+        />
     ))
     }
 }
