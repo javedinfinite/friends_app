@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { Pagination} from 'semantic-ui-react'
-import SingleEmployee from './list';
+import { Pagination,Grid, Sticky} from 'semantic-ui-react'
+import DatasetList from './datasetList';
 
 class Dataset extends Component {
   state = {
     activePage: 1,
     data:[],
-    offset: 3
+    offset: 20
   }
 
   handlePaginationChange = (e, { activePage }) => {
@@ -22,16 +22,21 @@ class Dataset extends Component {
   }
 
   render() {
-
     return (
-        <div>
-          <Pagination
-            activePage = {this.state.activePage}
-            onPageChange = {this.handlePaginationChange}
-            totalPages= {50}
-          />
-        <SingleEmployee data = {this.state.data}/>
-        </div>
+      <Grid>
+        <Grid.Row>
+          <Grid.Column  style={{ height : '80vh' , overflow: 'auto'}}>
+           <DatasetList data = {this.state.data} getOnclickEvent = {this.props.getOnclickEvent} />
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Pagination inverted small
+              activePage = {this.state.activePage}
+              onPageChange = {this.handlePaginationChange}
+              totalPages= {50}
+            />
+        </Grid.Row>
+      </Grid>
     )
   }
 }

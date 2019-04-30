@@ -1,21 +1,30 @@
 import React from 'react';
 import Dataset from './components/dataset'
-import SearchBar from './components/searchbar';
+import EmployeeInDetail from './components/employeeInDetail'
+
+
+import {Loader,Grid} from 'semantic-ui-react';
+import Header from './components/header'
+import './App.css'
+
 import axios from 'axios';
 
 class App extends React.Component {
-
   state = {
     error: null,
     isLoaded: true,
-    employee_data: []
+    employee_data: [],
+    selectedEmployee: {},
+    random_number : 1
+
   }
  
    componentDidMount() {
       axios.get('http://localhost:3001/').then( response => {
       this.setState({ 
         isLoaded: false, 
-        employee_data : response.data.EmployeeDetails 
+        employee_data : response.data.EmployeeDetails ,
+        selectedEmployee : response.data.EmployeeDetails[0]
       });
     })
     .catch(function (error) {
@@ -26,20 +35,41 @@ class App extends React.Component {
     });
   }
 
+  handleOnclick = (data,random_number) => {
+   this.setState({ 
+    selectedEmployee :  data,
+    // random_number : random_number
+  });
+  }
+  
+  
+
   render()
   { 
-    const { error, isLoaded, employee_data} = this.state;
-
+    const { error, isLoaded, employee_data, selectedEmployee} = this.state;
     if (error) {
       return <div> Error: {error.message} </div>;
     } else if (isLoaded) {
-      return <div> Loading... </div>;
+      return <Loader size="large" indeterminate active />
     }
     else{
       return ( 
-        <React.Fragment>
-          <Dataset  data = {employee_data}/>   
-        </React.Fragment>
+        <Grid celled='internally'>
+
+          <Grid.Row>
+            <Header/>
+          </Grid.Row>
+      
+          <Grid.Row>
+            <Grid.Column width={5} style={{ height : '90vh'}}>
+              <Dataset  data = {employee_data}getOnclickEvent = {this.handleOnclick} />  
+            </Grid.Column> 
+            <Grid.Column width={11}>
+              <EmployeeInDetail data = {selectedEmployee}  />
+            </Grid.Column>
+          </Grid.Row>
+
+        </Grid>
       )
     }
   }
