@@ -1,8 +1,6 @@
 import React from 'react';
 import Dataset from './components/dataset'
 import EmployeeInDetail from './components/employeeInDetail'
-
-
 import {Loader,Grid} from 'semantic-ui-react';
 import Header from './components/header'
 import './App.css'
@@ -16,13 +14,14 @@ class App extends React.Component {
     employee_data: [],
     selectedEmployee: {},
     random_number : 1
-
   }
  
    componentDidMount() {
-    // https://datagrokr-employee-server.herokuapp.com/
+       //Use this for fetching data from local node server 
       // axios.get('http://localhost:3001/').then( response => {
+        //use this for fetching data from Heroku node server
         axios.get('https://datagrokr-employee-server.herokuapp.com/').then( response => {
+        //after completion of development we will use proxy, not now!
       this.setState({ 
         isLoaded: false, 
         employee_data : response.data.EmployeeDetails ,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Pagination,Grid, Sticky} from 'semantic-ui-react'
+import { Pagination,Grid} from 'semantic-ui-react'
 import DatasetList from './datasetList';
 
 class Dataset extends Component {
@@ -30,7 +30,7 @@ class Dataset extends Component {
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
-          <Pagination inverted small
+          <Pagination inverted
               activePage = {this.state.activePage}
               onPageChange = {this.handlePaginationChange}
               totalPages= {50}

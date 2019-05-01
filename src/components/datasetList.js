@@ -1,6 +1,5 @@
 import React from 'react';
 import SingleEmployeeView from './singleEmployeeView'
-import { Item } from 'semantic-ui-react';
 
 class DatasetList extends React.Component {
     render() {

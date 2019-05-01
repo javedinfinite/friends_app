@@ -1,6 +1,5 @@
 import React from 'react'
-import { Image, Icon, Card, Grid, Table, Item, Divider, Label, Header } from 'semantic-ui-react';
-import image1 from '../images/image1.jpg'
+import {  Grid, Table, Item, Divider, Label, Header } from 'semantic-ui-react';
  
 var randomImages = [
     require('../images/image1.jpg'),
@@ -57,7 +56,7 @@ class EmployeeInDetail extends React.Component {
                <Divider/>
                 <Grid.Row>
                 <Table size='small'>
-                        <Table.Header inverted>
+                        <Table.Header  >
                             <Table.Row>
                                 <Table.HeaderCell>Team Name</Table.HeaderCell>
                                 <Table.HeaderCell>System IP</Table.HeaderCell>
@@ -74,7 +73,7 @@ class EmployeeInDetail extends React.Component {
                         </Table.Body>
                     </Table>
                      <Table size='small'>
-                        <Table.Header inverted>
+                        <Table.Header  >
                             <Table.Row>
                                 <Table.HeaderCell>Reporting Manager</Table.HeaderCell>
                                 <Table.HeaderCell>Bank Details</Table.HeaderCell>
@@ -90,7 +89,15 @@ class EmployeeInDetail extends React.Component {
                             </Table.Row>
                         </Table.Body>
                     </Table>
-                  
+ 
+                </Grid.Row>
+                <Divider/>
+                <Grid.Row>
+                    <Grid.Column  >
+                    <a class="ui red tag label">Disclaimer : Data shown of employees are not 100% correct,
+                                    Most of the data are dummy. We are working on it....till then... Happy Coding!!!
+                    </a>
+                    </Grid.Column>
                 </Grid.Row>
         </Grid>
         )
