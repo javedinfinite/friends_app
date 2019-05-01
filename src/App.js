@@ -20,7 +20,9 @@ class App extends React.Component {
   }
  
    componentDidMount() {
-      axios.get('http://localhost:3001/').then( response => {
+    // https://datagrokr-employee-server.herokuapp.com/
+      // axios.get('http://localhost:3001/').then( response => {
+        axios.get('https://datagrokr-employee-server.herokuapp.com/').then( response => {
       this.setState({ 
         isLoaded: false, 
         employee_data : response.data.EmployeeDetails ,
