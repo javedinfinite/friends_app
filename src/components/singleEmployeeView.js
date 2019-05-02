@@ -12,11 +12,9 @@ var randomImages = [
 
 
 class  SingleEmployeeView extends React.Component {
- state = {
-   Imagenumber : 1
- }
+  
   handleOnclick = () => {
-    this.props.getOnclickEvent(this.props.item,this.props.random_number)
+    this.props.getOnclickEvent(this.props.item)
    }
   render () {
     const data = this.props.item;

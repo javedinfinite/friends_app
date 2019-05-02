@@ -1,6 +1,9 @@
 import React from 'react'
 import {  Grid, Table, Item, Divider, Label, Header } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+
  
+
 var randomImages = [
     require('../images/image1.jpg'),
     require('../images/image2.jpg'),
@@ -13,7 +16,7 @@ var randomImages = [
 class EmployeeInDetail extends React.Component {
 
     render () {
-        const data = this.props.data;
+        const data = this.props.selectedEmployee;
         return (
             <Grid celled='internally'>
                 <Grid.Row>
@@ -103,6 +106,14 @@ class EmployeeInDetail extends React.Component {
         )
     }
 }
-export default EmployeeInDetail;
-
+const mapStateToProps = (state, props) => {
+    return {
+      employeeList: state.employeeReducer.employeeList,
+      error:  state.employeeReducer.error,
+      isLoading: state.employeeReducer.isLoading,
+      selectedEmployee: state.employeeReducer.selectedEmployee
+    };
+  };
+  
+  export default connect(mapStateToProps)(EmployeeInDetail);
  
