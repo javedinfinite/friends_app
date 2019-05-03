@@ -6,7 +6,8 @@ export const getEmployeeList = () => {
     dispatch({type: Actions.EMPLOYEES_REQUESTED});
 
     try {
-      let response = await axios.get('https://datagrokr-employee-server.herokuapp.com/');
+      // let response = await axios.get('http://localhost:3001');
+      let response = await axios.get('https://datagrokr-employee-server.herokuapp.com');
       dispatch({
         type: Actions.EMPLOYEES_RECEIVED,
         payload: {employeeList: response.data.EmployeeDetails},
@@ -21,21 +22,19 @@ export const getEmployeeList = () => {
 };
 export const getEmployee = (id) => {
   return async (dispatch) => {
-    // dispatch({type: Actions.EMPLOYEES_REQUESTED});
-
+    dispatch({type: Actions.EMPLOYEE_REQUESTED});
     try {
-      let response = await axios.get(`http://localhost:3001/${id}`);
-      // let response = await axios.get(`https://datagrokr-employee-server.herokuapp.com/${id}`);
-      console.log("from employeeAction of single employee",response);
-      // dispatch({
-      //   type: Actions.EMPLOYEES_RECEIVED,
-      //   payload: {employeeList: response.data.EmployeeDetails},
-      // });
+      // let response = await axios.get(`http://localhost:3001/${id}`);
+      let response = await axios.get(`https://datagrokr-employee-server.herokuapp.com/${id}`);
+      dispatch({
+        type: Actions.EMPLOYEE_RECEIVED,
+        payload: {employeeDetails: response.data},
+      });
     } catch (e) {
-      // dispatch({
-      //   type: Actions.EMPLOYEES_ERROR,
-      //   error: "API to get employee list is failed with error : "+e,
-      // });
+      dispatch({
+        type: Actions.EMPLOYEE_ERROR,
+        error: "API to get employee list is failed with error : "+e,
+      });
     }
   };
 };

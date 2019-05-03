@@ -1,7 +1,12 @@
 import React from 'react'
 import { Card, Icon, Image, Divider } from 'semantic-ui-react'
+import {getEmployee} from '../actions/employeeAction'
+import {connect} from 'react-redux'
  
 var randomImages = [
+  require('../images/image7.png'),
+  require('../images/image8.png'),
+  require('../images/image9.png'),
   require('../images/image1.jpg'),
   require('../images/image2.jpg'),
   require('../images/image3.jpg'),
@@ -10,20 +15,22 @@ var randomImages = [
   require('../images/image6.jpg')
 ];
 
-
 class  SingleEmployeeView extends React.Component {
   
   handleOnclick = () => {
-    this.props.getOnclickEvent(this.props.item)
-   }
+    this.props.dispatch(getEmployee(this.props.item.id));
+ }
   render () {
+
     const data = this.props.item;
-      
+    let photoId = this.props.item.photoId != undefined? this.props.item.photoId : 3;
+
     return(
       <div onClick={this.handleOnclick} >
         <a href='#'>
           <Card className="card_class">
-            <Image size='small' circular  src={randomImages[5]} />
+            
+            <Image size='small' circular  src={randomImages[photoId]} />
             <Card.Content>
               <Card.Header><Icon name='user' /> {data.first_name}</Card.Header>
               <Card.Meta>
@@ -42,4 +49,5 @@ class  SingleEmployeeView extends React.Component {
   }
 
 }
-export default SingleEmployeeView
+
+export default connect()(SingleEmployeeView)

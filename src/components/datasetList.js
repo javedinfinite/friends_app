@@ -10,6 +10,7 @@ class DatasetList extends React.Component {
                     item ={item}
                     getOnclickEvent = {this.props.getOnclickEvent}
                     key = {'key'+item.id}
+                    
                 />
              ))
         );

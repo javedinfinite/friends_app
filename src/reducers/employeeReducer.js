@@ -30,11 +30,24 @@ export default (state = initialState, action) => {
         error: action.error || 'Something went wrong while fetching employees list',
         isLoading: false,
       };
-      case Actions.SET_EMPLOYEE_REQUESTED:
+      case Actions.EMPLOYEE_REQUESTED:
       return {
         ...state,
-        error: action.error || 'Something went wrong while fetching employees list',
-        selectedEmployee: action.payload.employeeList[0] || {},
+        error: action.error || '',
+        selectedEmployee:   {},
+        isLoading: false,
+      };
+      case Actions.EMPLOYEE_RECEIVED:
+      return {
+        ...state,
+        error:  '',
+        selectedEmployee: action.payload.employeeDetails || {},
+        isLoading: false,
+      };
+      case Actions.EMPLOYEE_ERROR:
+      return {
+        ...state,
+        error: action.error || 'Something went wrong while fetching employee data',
         isLoading: false,
       };
     default:

@@ -26,7 +26,7 @@ class Dataset extends Component {
       <Grid>
         <Grid.Row>
           <Grid.Column  style={{ height : '80vh' , overflow: 'auto'}}>
-           <DatasetList data = {this.state.data} getOnclickEvent = {this.props.getOnclickEvent} />
+           <DatasetList data = {this.state.data} />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
