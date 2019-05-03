@@ -1,7 +1,11 @@
 import React from 'react'
 import {  Grid, Table, Item, Divider, Label, Header } from 'semantic-ui-react';
- 
+import { connect } from 'react-redux';
+
 var randomImages = [
+    require('../images/image7.png'),
+    require('../images/image8.png'),
+    require('../images/image9.png'),
     require('../images/image1.jpg'),
     require('../images/image2.jpg'),
     require('../images/image3.jpg'),
@@ -13,13 +17,16 @@ var randomImages = [
 class EmployeeInDetail extends React.Component {
 
     render () {
-        const data = this.props.data;
+
+        const data = this.props.selectedEmployee;
+        let photoId = data.photoId != undefined? data.photoId : 3;
+
         return (
             <Grid celled='internally'>
                 <Grid.Row>
                     <Item.Group>
                         <Item>
-                            <Item.Image size='medium' src={randomImages[0]} circular/>
+                            <Item.Image size='medium' src={randomImages[photoId]} circular/>
                             <Item.Content>
                                 <Item.Header as='a'>Employee Name : {data.first_name} {data.last_name}</Item.Header>
                                 <Item.Meta>Description</Item.Meta>
@@ -103,6 +110,14 @@ class EmployeeInDetail extends React.Component {
         )
     }
 }
-export default EmployeeInDetail;
-
+const mapStateToProps = (state, props) => {
+    return {
+      employeeList: state.employeeReducer.employeeList,
+      error:  state.employeeReducer.error,
+      isLoading: state.employeeReducer.isLoading,
+      selectedEmployee: state.employeeReducer.selectedEmployee
+    };
+  };
+  
+  export default connect(mapStateToProps)(EmployeeInDetail);
  
