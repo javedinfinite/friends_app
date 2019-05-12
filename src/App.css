@@ -2,9 +2,7 @@
 .menu{
   width: 100%;
 }
-.card_class:hover {
-  box-shadow: 0 0 11px rgb(14, 12, 11) !important; 
+.segment{
+  width: 100%;
 }
-.card_class{
-  background-color: #c1e7b6 !important;
-}
+ 
