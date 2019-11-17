@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
  
-export default class TimeCal extends Component {
+export class TimeCal extends Component {
   
 
   render() {

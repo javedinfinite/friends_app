@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
  
-export default class FriendsChat extends Component {
+export class FriendsChat extends Component {
   
 
   render() {

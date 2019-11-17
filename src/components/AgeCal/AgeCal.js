@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
  
-export default class Notes extends Component {
+export class AgeCal extends Component {
   
 
   render() {
      
     return (
       <div>
-          <p>I am Notes</p>
+          <p>I am ageCal</p>
       </div>
     )
   }

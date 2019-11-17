@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import employeeReducer from './employeeReducer';
+import apjAcademyReducer from './apjAcademyReducer';
  
 
 const rootReducer = combineReducers({
-    employeeReducer: employeeReducer
+    apjAcademyReducer: apjAcademyReducer
 });
 
 export default rootReducer;

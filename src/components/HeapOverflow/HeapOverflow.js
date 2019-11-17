@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
  
-export default class AgeCal extends Component {
+export class HeapOverflow extends Component {
   
 
   render() {
      
     return (
       <div>
-          <p>I am ageCal</p>
+          <p>I am HeapOverflow</p>
       </div>
     )
   }

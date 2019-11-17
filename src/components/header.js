@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Menu, Image, Segment, Dropdown } from 'semantic-ui-react'
 import '../App.css'
 import SearchComponent from './SearchComponent'
-import img from '../images/friendsApp.png'
+import img from '../assets/images/friendsApp.png'
 import { Link, withRouter } from 'react-router-dom';
 
 
