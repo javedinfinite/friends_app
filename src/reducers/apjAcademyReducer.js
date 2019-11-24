@@ -1,9 +1,9 @@
 import Actions from  '../actionConstants/apjAcademyActionConstants'
 
 const initialState = {
-  VideoList: [],
+  YoutubePlayList: [],
   isLoading: false,
-  selectedVideo: {},
+  selectedPlaylist: {},
   error: '',
 };
 
@@ -13,15 +13,16 @@ export default (state = initialState, action) => {
       return {
         ...state,
         error: '',
-        VideoList: [],
+        YoutubePlayList: [],
         isLoading: true,
       };
       case Actions.VIDEOS_RECEIVED:
+        // console.log("inside received.................."+JSON.stringify(action.payload.YoutubePlayList[0].snippet.publishedAt))
       return {
         ...state,
         error: '',
-        VideoList: action.payload.videoList || [],
-        selectedVideo: action.payload.VideoList[0] || {},
+        YoutubePlayList: action.payload.YoutubePlayList || [],
+        selectedPlaylist: action.payload.YoutubePlayList[0] || {},
         isLoading: false,
       };
       case Actions.VIDEOS_ERROR:
@@ -34,14 +35,14 @@ export default (state = initialState, action) => {
       return {
         ...state,
         error: action.error || '',
-        selectedVideo:   {},
+        selectedPlaylist:   {},
         isLoading: false,
       };
       case Actions.VIDEO_RECEIVED:
       return {
         ...state,
         error:  '',
-        selectedVideo: action.payload.videoDetails || {},
+        selectedPlaylist: action.payload.videoDetails || {},
         isLoading: false,
       };
       case Actions.VIDEO_ERROR:

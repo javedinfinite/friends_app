@@ -1,6 +1,6 @@
 import React from 'react';
-import {Loader,Grid} from 'semantic-ui-react';
-import Header from './components/Header'
+import {Loader} from 'semantic-ui-react';
+import Header from './components/header'
 import Home from './components/Home'
 import FriendsChat from './components/FriendsChat'
 import ApjAcademy from './components/ApjAcademy'
@@ -11,7 +11,7 @@ import TimeCal from './components/TimeCal'
 import Notes from './components/Notes'
 
 import About from './components/About'
-import { Link, Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
  
 
 class AppContainer extends React.Component {
@@ -53,16 +53,3 @@ class AppContainer extends React.Component {
 }
 
 export default AppContainer
-
-{/* <Grid >
-              <Grid.Row>
-                <Header/>
-              </Grid.Row>
-          
-              <Grid.Row>
-                <Grid.Column width={5} style={{ height : '80vh'}} color={"blue"}>
-                </Grid.Column> 
-                <Grid.Column width={11}>
-                </Grid.Column>
-              </Grid.Row> 
-            </Grid> */}
