@@ -1,12 +1,12 @@
 import Actions from '../actionConstants/apjAcademyActionConstants';
 import axios from 'axios';
 
-export const getVideosList = () => {
+export const getPlayLists = () => {
   return async (dispatch) => {
-    dispatch({type: Actions.VIDEOS_REQUESTED});
+    dispatch({type: Actions.PLAYLISTS_REQUESTED});
 
     try {
-      console.log("Actions is being called...............................................");
+      console.log("Actions of getPlayLists is being called...............................................");
       // const playListIds = 'PLfjlOytYZqaoswoC2v4G_Y5aWn9RZW57Y';
       const API_KEY = 'AIzaSyAiM8qRZPqL9LQ_othyTNlAaCy2VyIWX4Q';
       const channelId = 'UC4jf-dcbspJbSp6H-gBRdlw'
@@ -18,10 +18,39 @@ export const getVideosList = () => {
           key  : API_KEY
         }
       })
-      // console.log("response : ..."+ JSON.stringify(response))
+      dispatch({
+        type: Actions.PLAYLISTS_RECEIVED,
+        payload: {YoutubePlayList: response.data.items},
+      });
+    } catch (e) {
+      console.log("error........................"+e)
+      dispatch({
+        type: Actions.PLAYLISTS_ERROR,
+        error: "API to get videos list is failed with error : "+e,
+      });
+    }
+  };
+};
+
+export const getVideosList = () => {
+  return async (dispatch) => {
+    dispatch({type: Actions.VIDEOS_REQUESTED});
+
+    try {
+      console.log("Actions of getVideosList is being called...............................................");
+      const playlistId = 'PLfjlOytYZqaoswoC2v4G_Y5aWn9RZW57Y';
+      const API_KEY = 'AIzaSyAiM8qRZPqL9LQ_othyTNlAaCy2VyIWX4Q';
+      let response  = await axios.get('https://www.googleapis.com/youtube/v3/playlistItems', {
+        params: {
+          playlistId : playlistId,
+          part: 'snippet',
+          key  : API_KEY
+        }
+      })
+      console.log("response of  getVideosList..........: ...",response)
       dispatch({
         type: Actions.VIDEOS_RECEIVED,
-        payload: {YoutubePlayList: response.data.items},
+        payload: {playlistVideoes: response.data.items},
       });
     } catch (e) {
       console.log("error........................"+e)
@@ -32,3 +61,4 @@ export const getVideosList = () => {
     }
   };
 };
+

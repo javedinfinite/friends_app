@@ -1,0 +1,57 @@
+.yt_icon{
+    font-size:40px;
+    text-align: center;
+  
+  }
+  .search-bar{
+    text-align: center;
+    /* background-color: green; */
+  
+  }
+  .search-bar-input{
+    width: 60%;
+    height: 40px;
+    padding-left: 5px;
+    
+  }
+  .iframe-design{
+    margin:10px; 
+    margin-left: 100px;
+    margin-top: 5vh;
+  }
+  .v_play{
+    text-align: center;
+  
+  }
+  .v_title{
+    text-align: center;
+  }
+  .v_description{
+    text-align: center;
+  }
+  .list-group-item{
+    cursor: pointer;
+  }
+  .list-group-item:hover{
+    opacity:.5;
+  }
+  .v_icon:hover{
+    visibility:visible;
+  
+  }
+  
+  .dimer {
+     background-color: transparent !important; 
+    }
+  .dimer:hover div {
+      visibility:visible;
+     }
+  .v_icon{
+      background-color:black;
+      padding: 5px;
+      visibility:hidden;
+      margin-left: 105px !important;
+      margin-bottom: 95px !important;
+  
+    }
+   
