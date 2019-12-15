@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
+import _ from 'lodash'
 
 const ApjVideoPlay = (props) => {
     // console.log(props);
@@ -9,14 +10,23 @@ const ApjVideoPlay = (props) => {
     //     return <div>Loading...</div>;
     // }
     // const videoId = video.id.videoId;  
-    const videoId = 'VTnDYxwhSaI'
+    // const videoId = 'VTnDYxwhSaI'
+     if(_.isEmpty(props.data)  )
+     return null;
+    // console.log("selectedVideo.................",props.data.snippet.resourceId.videoId)
+    console.log("selectedVideo from ApjVideoPlay.................",props.data)
+    
+    const videoId = props.data.snippet.resourceId.videoId
     const url = `http://www.youtube.com/embed/${videoId}`;//creating a link of the concern video using video ID so that we can play the video
+
+ 
 
     return (
         <React.Fragment>
                
                 {/* The iframe tag specifies an inline frame.
                 An inline frame is used to embed another document within the current HTML document. */}
+                {/* <p>All is well</p> */}
                 <iframe  className = "iframe-design" allowFullScreen="allowfullscreen" width="80%" height="400vh" title=" " src={url}  ></iframe>
                  
                 {/* <Grid.Row className="v_title">

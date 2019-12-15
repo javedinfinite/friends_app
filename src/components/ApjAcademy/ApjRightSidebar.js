@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Pagination, Grid, Image} from 'semantic-ui-react'
 import  ApjPlayListVideos from './ApjPlayListVideos';
+import _ from 'lodash'
+
 
 class ApjRightSidebar extends Component {
   state = {
@@ -24,16 +26,18 @@ class ApjRightSidebar extends Component {
   }
 
   render() {
+    if(_.isEmpty(this.props.data)  )
+      return null;
     return (
       <Grid>
         <Grid.Row>
           <Grid.Column  style={{ height : '78vh' , overflow: 'auto'}}>
-           {/* <ApjPlayListVideos data = {this.props.data} /> */}
-           <Image src={ this.props.data[0].snippet.thumbnails.maxres.url} size='small' />
+           <ApjPlayListVideos data = {this.props.data} />
+           {/* <Image src={ this.props.data[0].snippet.thumbnails.maxres.url} size='small' />
            <Image src={ this.props.data[1].snippet.thumbnails.maxres.url} size='small' />
            <Image src={ this.props.data[2].snippet.thumbnails.maxres.url} size='small' />
            <Image src={ this.props.data[3].snippet.thumbnails.maxres.url} size='small' />
-           <Image src={ this.props.data[4].snippet.thumbnails.maxres.url} size='small' />
+           <Image src={ this.props.data[4].snippet.thumbnails.maxres.url} size='small' /> */}
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>

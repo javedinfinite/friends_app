@@ -17,12 +17,12 @@ class ApjAcademy extends Component {
     if (_.isEmpty(this.props.selectedPlaylist))
          this.props.dispatch(getPlayLists());
     if (_.isEmpty(this.props.selectedVideo))
-         this.props.dispatch(getVideosList());
+         this.props.dispatch(getVideosList('PLfjlOytYZqaoswoC2v4G_Y5aWn9RZW57Y'));
   }
 
   render() {
 
-    const { error, isLoading, selectedPlaylist, YoutubePlayList, playlistVideoes} = this.props;
+    const { error, isLoading, selectedPlaylist, YoutubePlayList, playlistVideoes, selectedVideo} = this.props;
 
     if (error) {
         return <div> Error: {error} </div>;
@@ -32,7 +32,7 @@ class ApjAcademy extends Component {
     else {
       if(_.isEmpty(this.props.selectedPlaylist)  )
         return null;
-      console.log("playlistVideoes............",playlistVideoes)
+      // console.log("playlistVideoes............",playlistVideoes)
       return (
         <Grid celled='internally'>
 
@@ -48,7 +48,7 @@ class ApjAcademy extends Component {
 
                 </Grid.Row>
                 <Grid.Row>
-                <ApjVideoPlay />
+                <ApjVideoPlay data= {selectedVideo} /> 
 
                 </Grid.Row>
               </Grid.Column>

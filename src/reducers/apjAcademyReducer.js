@@ -38,7 +38,7 @@ export default (state = initialState, action) => {
       case Actions.VIDEOS_REQUESTED:
       return {
         ...state,
-        isLoading: false,
+        isLoading: true,
       };
       case Actions.VIDEOS_RECEIVED:
       return {
@@ -53,6 +53,24 @@ export default (state = initialState, action) => {
         error: action.error || 'Something went wrong while fetching video list',
         isLoading: false,
       };
+
+
+      case Actions.VIDEO_REQUESTED:
+        return {
+          ...state,
+          isLoading: false,
+        }
+      case Actions.VIDEO_RECEIVED:
+        return {
+          ...state,
+          selectedVideo: action.payload.abc
+        }
+      case Actions.VIDEO_ERROR:
+        return {
+          ...state,
+          error: action.error || 'Something went wrong while fetching video ',
+          isLoading: false,
+        };
     default:
       return state;
   }
