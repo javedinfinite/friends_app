@@ -17,6 +17,7 @@ const ApjVideoPlay = (props) => {
     console.log("selectedVideo from ApjVideoPlay.................",props.data)
     
     const videoId = props.data.snippet.resourceId.videoId
+    const video = props.data;
     const url = `http://www.youtube.com/embed/${videoId}`;//creating a link of the concern video using video ID so that we can play the video
 
  
@@ -29,12 +30,12 @@ const ApjVideoPlay = (props) => {
                 {/* <p>All is well</p> */}
                 <iframe  className = "iframe-design" allowFullScreen="allowfullscreen" width="80%" height="400vh" title=" " src={url}  ></iframe>
                  
-                {/* <Grid.Row className="v_title">
+                <Grid.Row className="v_title">
                     <h3>{video.snippet.title}</h3>
                 </Grid.Row>
                 <Grid.Row className="v_description">
                     {video.snippet.description}
-                </Grid.Row> */}
+                </Grid.Row>
         </React.Fragment>
     );
 };

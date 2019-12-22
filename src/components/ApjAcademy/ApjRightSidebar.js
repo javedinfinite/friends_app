@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
-import { Pagination, Grid, Image} from 'semantic-ui-react'
+import { Pagination, Grid, Image, Divider} from 'semantic-ui-react'
 import  ApjPlayListVideos from './ApjPlayListVideos';
+import { connect } from 'react-redux';
 import _ from 'lodash'
+import './index.css'
 
 
 class ApjRightSidebar extends Component {
   state = {
     activePage: 1,
     data:[],
-    offset: 5
+    offset: 5,
+    selectedPlaylist:'happy hours'
   }
 
   handlePaginationChange = (e, { activePage }) => {
@@ -22,16 +25,20 @@ class ApjRightSidebar extends Component {
     const data = this.props.data.filter(data => (data.id>=1 && data.id<=this.state.offset));
     this.setState({ data: data })
     console.log("data : ................",this.props.data)
-
   }
 
   render() {
+    const { error, isLoading, selectedPlaylist, YoutubePlayList, playlistVideoes, selectedVideo} = this.props;
+
     if(_.isEmpty(this.props.data)  )
       return null;
     return (
-      <Grid>
+      <Grid className='sidebar_class'>
+        <Grid.Row  centered  style={{color: "white"}}> <b > <h3 > Playing : { selectedPlaylist.snippet.title} </h3></b></Grid.Row>
         <Grid.Row>
-          <Grid.Column  style={{ height : '78vh' , overflow: 'auto'}}>
+          <Grid.Column  style={{ height : '70vh' , overflow: 'auto'}}>
+         
+          <Divider />
            <ApjPlayListVideos data = {this.props.data} />
            {/* <Image src={ this.props.data[0].snippet.thumbnails.maxres.url} size='small' />
            <Image src={ this.props.data[1].snippet.thumbnails.maxres.url} size='small' />
@@ -41,16 +48,29 @@ class ApjRightSidebar extends Component {
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
-          <Pagination inverted
+          {/* <Pagination inverted
               activePage = {this.state.activePage}
               onPageChange = {this.handlePaginationChange}
               totalPages= {50}
-            />
+            /> */}
         </Grid.Row>
       </Grid>
     )
   }
 }
 
-export default ApjRightSidebar
+// export default ApjRightSidebar
+const mapStateToProps = (state, props) => {
+  console.log("from rightsidebar..................",state.apjAcademyReducer.selectedPlaylist)
+  return {
+    // YoutubePlayList: state.apjAcademyReducer.YoutubePlayList,
+    // playlistVideoes: state.apjAcademyReducer.playlistVideoes,
+    selectedPlaylist:  state.apjAcademyReducer.selectedPlaylist,
+    // selectedVideo:  state.apjAcademyReducer.selectedVideo,
+    // error:  state.apjAcademyReducer.error,
+    // isLoading: state.apjAcademyReducer.isLoading
+  };
+};
+
+export default connect(mapStateToProps)(ApjRightSidebar);
 

@@ -8,6 +8,12 @@
     /* background-color: green; */
   
   }
+  .card_class{
+    background-color: teal !important;
+  }
+  .sidebar_class{
+    background-color: #0a3438 !important;
+  }
   .search-bar-input{
     width: 60%;
     height: 40px;
@@ -19,7 +25,7 @@
     margin-left: 100px;
     margin-top: 5vh;
   }
-  .v_play{
+  /* .v_play{
     text-align: center;
   
   }
@@ -34,24 +40,24 @@
   }
   .list-group-item:hover{
     opacity:.5;
-  }
-  .v_icon:hover{
+  } */
+  /* .v_icon:hover{
     visibility:visible;
   
-  }
+  } */
   
-  .dimer {
+  /* .dimer {
      background-color: transparent !important; 
-    }
-  .dimer:hover div {
+    } */
+  /* .dimer:hover div {
       visibility:visible;
-     }
-  .v_icon{
+     } */
+  /* .v_icon{
       background-color:black;
       padding: 5px;
       visibility:hidden;
       margin-left: 105px !important;
       margin-bottom: 95px !important;
   
-    }
+    } */
    

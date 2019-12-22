@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Pagination, Grid, Image} from 'semantic-ui-react'
+import { Pagination, Grid, Image, Divider} from 'semantic-ui-react'
 import ApjPlayList from './ApjPlayList';
 
 class ApjSidebar extends Component {
@@ -25,9 +25,12 @@ class ApjSidebar extends Component {
 
   render() {
     return (
-      <Grid>
+      <Grid className="sidebar_class">
+        <Grid.Row centered  style={{color: "white"}} ><b> <h3>APJ-Academy Video Playlists </h3></b></Grid.Row>
         <Grid.Row>
-          <Grid.Column  style={{ height : '78vh' , overflow: 'auto'}}>
+          <Grid.Column  style={{ height : '70vh' , overflow: 'auto'}}>
+          
+          {/* <Divider /> */}
            <ApjPlayList data = {this.props.data} />
            {/* <Image src={ this.props.data[0].snippet.thumbnails.maxres.url} size='small' />
            <Image src={ this.props.data[1].snippet.thumbnails.maxres.url} size='small' />
@@ -35,11 +38,11 @@ class ApjSidebar extends Component {
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
-          <Pagination inverted
+          {/* <Pagination inverted
               activePage = {this.state.activePage}
               onPageChange = {this.handlePaginationChange}
               totalPages= {50}
-            />
+            /> */}
         </Grid.Row>
       </Grid>
     )

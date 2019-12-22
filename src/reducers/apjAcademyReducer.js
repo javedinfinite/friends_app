@@ -38,20 +38,21 @@ export default (state = initialState, action) => {
       case Actions.VIDEOS_REQUESTED:
       return {
         ...state,
-        isLoading: true,
+        selectedPlaylist:action.payload.selectedPlaylist
+        // isLoading: true,
       };
       case Actions.VIDEOS_RECEIVED:
       return {
         ...state,
         playlistVideoes: action.payload.playlistVideoes || [],
         selectedVideo: action.payload.playlistVideoes[0] || {},
-        isLoading: false,
+        // isLoading: false,
       };
       case Actions.VIDEOS_ERROR:
       return {
         ...state,
         error: action.error || 'Something went wrong while fetching video list',
-        isLoading: false,
+        // isLoading: false,
       };
 
 

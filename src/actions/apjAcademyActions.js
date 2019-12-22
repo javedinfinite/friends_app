@@ -32,9 +32,12 @@ export const getPlayLists = () => {
   };
 };
 
-export const getVideosList = (playlistId) => {
+export const getVideosList = (playlistId, selectedPlaylist) => {
   return async (dispatch) => {
-    dispatch({type: Actions.VIDEOS_REQUESTED});
+    dispatch({
+      type: Actions.VIDEOS_REQUESTED,
+      payload: {selectedPlaylist: selectedPlaylist}
+    });
 
     try {
       console.log("Actions of getVideosList is being called...............................................");
