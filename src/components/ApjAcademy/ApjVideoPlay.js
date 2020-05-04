@@ -27,9 +27,10 @@ const ApjVideoPlay = (props) => {
                
                 {/* The iframe tag specifies an inline frame.
                 An inline frame is used to embed another document within the current HTML document. */}
+                <Grid.Row>
                 {/* <p>All is well</p> */}
                 <iframe  className = "iframe-design" allowFullScreen="allowfullscreen" width="80%" height="400vh" title=" " src={url}  ></iframe>
-                 
+                 </Grid.Row>
                 <Grid.Row className="v_title">
                     <h3>{video.snippet.title}</h3>
                 </Grid.Row>

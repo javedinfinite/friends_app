@@ -1,6 +1,7 @@
 import React from 'react';
-import {Loader} from 'semantic-ui-react';
+import {Loader, Responsive} from 'semantic-ui-react';
 import Header from './components/header'
+import MobileHeader from './components/header_for_mobile'
 import Home from './components/Home'
 import FriendsChat from './components/FriendsChat'
 import ApjAcademy from './components/ApjAcademy'
@@ -30,7 +31,12 @@ class AppContainer extends React.Component {
       return (
         <Router>
           <div>
-            <Header/>
+            <Responsive {...Responsive.onlyMobile}>
+               <MobileHeader />
+            </Responsive>
+            <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+              <Header/>
+             </Responsive>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/friends_chat" component={FriendsChat} />
