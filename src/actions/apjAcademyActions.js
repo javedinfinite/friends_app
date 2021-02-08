@@ -1,5 +1,6 @@
 import Actions from '../actionConstants/apjAcademyActionConstants';
 import axios from 'axios';
+const {REACT_APP_YOUTUBE_API_KEY,REACT_APP_CHANNEL_IF} = process.env;
 
 export const getPlayLists = () => {
   return async (dispatch) => {
@@ -8,8 +9,8 @@ export const getPlayLists = () => {
     try {
       console.log("Actions of getPlayLists is being called...............................................");
       // const playListIds = 'PLfjlOytYZqaoswoC2v4G_Y5aWn9RZW57Y';
-      const API_KEY = 'AIzaSyAiM8qRZPqL9LQ_othyTNlAaCy2VyIWX4Q';
-      const channelId = 'UC4jf-dcbspJbSp6H-gBRdlw'
+      const API_KEY =   REACT_APP_YOUTUBE_API_KEY;
+      const channelId = REACT_APP_CHANNEL_IF;
       let response  = await axios.get('https://www.googleapis.com/youtube/v3/playlists', {
         params: {
           // id : playListIds,
@@ -42,7 +43,7 @@ export const getVideosList = (playlistId, selectedPlaylist) => {
     try {
       console.log("Actions of getVideosList is being called...............................................");
       // const playlistId = 'PLfjlOytYZqaoswoC2v4G_Y5aWn9RZW57Y';
-      const API_KEY = 'AIzaSyAiM8qRZPqL9LQ_othyTNlAaCy2VyIWX4Q';
+      const API_KEY = REACT_APP_YOUTUBE_API_KEY;
       let response  = await axios.get('https://www.googleapis.com/youtube/v3/playlistItems', {
         params: {
           playlistId : playlistId,
