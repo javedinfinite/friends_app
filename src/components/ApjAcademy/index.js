@@ -1,3 +1,3 @@
-import {ApjAcademy} from './ApjAcademy'
+import ApjAcademy from './ApjAcademy'
 
 export default ApjAcademy;

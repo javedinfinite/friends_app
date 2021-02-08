@@ -1,55 +1,77 @@
 import Actions from  '../actionConstants/apjAcademyActionConstants'
 
 const initialState = {
-  VideoList: [],
+  YoutubePlayList: [],
+  playlistVideoes: [],
   isLoading: false,
+  selectedPlaylist: {},
   selectedVideo: {},
   error: '',
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case Actions.VIDEOS_REQUESTED:
+    case Actions.PLAYLISTS_REQUESTED:
       return {
         ...state,
-        error: '',
-        VideoList: [],
         isLoading: true,
+      };
+      case Actions.PLAYLISTS_RECEIVED:
+        // console.log("inside received.................."+JSON.stringify(action.payload.YoutubePlayList[0].snippet.publishedAt))
+      return {
+        ...state,
+        YoutubePlayList: action.payload.YoutubePlayList || [],
+        selectedPlaylist: action.payload.YoutubePlayList[0] || {},
+        isLoading: false,
+      };
+      case Actions.PLAYLISTS_ERROR:
+      return {
+        ...state,
+        error: action.error || 'Something went wrong while fetching playlist list',
+        isLoading: false,
+      };
+
+
+
+
+
+      case Actions.VIDEOS_REQUESTED:
+      return {
+        ...state,
+        selectedPlaylist:action.payload.selectedPlaylist
+        // isLoading: true,
       };
       case Actions.VIDEOS_RECEIVED:
       return {
         ...state,
-        error: '',
-        VideoList: action.payload.videoList || [],
-        selectedVideo: action.payload.VideoList[0] || {},
-        isLoading: false,
+        playlistVideoes: action.payload.playlistVideoes || [],
+        selectedVideo: action.payload.playlistVideoes[0] || {},
+        // isLoading: false,
       };
       case Actions.VIDEOS_ERROR:
       return {
         ...state,
         error: action.error || 'Something went wrong while fetching video list',
-        isLoading: false,
+        // isLoading: false,
       };
+
+
       case Actions.VIDEO_REQUESTED:
-      return {
-        ...state,
-        error: action.error || '',
-        selectedVideo:   {},
-        isLoading: false,
-      };
+        return {
+          ...state,
+          isLoading: false,
+        }
       case Actions.VIDEO_RECEIVED:
-      return {
-        ...state,
-        error:  '',
-        selectedVideo: action.payload.videoDetails || {},
-        isLoading: false,
-      };
+        return {
+          ...state,
+          selectedVideo: action.payload.abc
+        }
       case Actions.VIDEO_ERROR:
-      return {
-        ...state,
-        error: action.error || 'Something went wrong while fetching video data',
-        isLoading: false,
-      };
+        return {
+          ...state,
+          error: action.error || 'Something went wrong while fetching video ',
+          isLoading: false,
+        };
     default:
       return state;
   }
