@@ -31,7 +31,7 @@ class  SingleVideoView extends React.Component {
         
         // <p>{data.snippet.thumbnails.default.url}</p>
       <div onClick={this.handleOnclick} >
-        <a href='#'>
+        <a >
           <Card className="card_class">
             
             <Dimmer.Dimmable 

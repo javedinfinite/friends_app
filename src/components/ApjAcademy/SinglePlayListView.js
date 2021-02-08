@@ -28,7 +28,7 @@ class  SinglePlayListView extends React.Component {
     )
     return(
       <div onClick={this.handleOnclick} >
-        <a href='#'>
+        <a  >
           <Card className="card_class">
             <Dimmer.Dimmable
               as={Image}
