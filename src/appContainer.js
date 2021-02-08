@@ -12,7 +12,7 @@ import TimeCal from './components/TimeCal'
 import Notes from './components/Notes'
 
 import About from './components/About'
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Switch, Route, HashRouter, BrowserRouter as Router } from 'react-router-dom';
  
 
 class AppContainer extends React.Component {
@@ -29,7 +29,7 @@ class AppContainer extends React.Component {
       }
     else {
       return (
-        <Router>
+        <HashRouter>
           <div>
             <Responsive {...Responsive.onlyMobile}>
                <MobileHeader />
@@ -50,7 +50,7 @@ class AppContainer extends React.Component {
               <Route path="/logout" component={Home} />
             </Switch>
           </div>
-        </Router>
+        </HashRouter>
         );
     }
  
