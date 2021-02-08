@@ -1,6 +1,6 @@
 import React from 'react';
 import {Loader,Grid} from 'semantic-ui-react';
-import Header from './components/Header'
+import Header from './components/header'
 import Home from './components/Home'
 import FriendsChat from './components/FriendsChat'
 import ApjAcademy from './components/ApjAcademy'
