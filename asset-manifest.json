@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/friends_app/static/css/main.b88fa1a1.chunk.css",
+    "main.js": "/friends_app/static/js/main.a51d43bb.chunk.js",
+    "main.js.map": "/friends_app/static/js/main.a51d43bb.chunk.js.map",
+    "runtime~main.js": "/friends_app/static/js/runtime~main.e1b72ad6.js",
+    "runtime~main.js.map": "/friends_app/static/js/runtime~main.e1b72ad6.js.map",
+    "static/css/2.669be4ef.chunk.css": "/friends_app/static/css/2.669be4ef.chunk.css",
+    "static/js/2.ba69f704.chunk.js": "/friends_app/static/js/2.ba69f704.chunk.js",
+    "static/js/2.ba69f704.chunk.js.map": "/friends_app/static/js/2.ba69f704.chunk.js.map",
+    "index.html": "/friends_app/index.html",
+    "precache-manifest.5352d40824b2b9b96acbfec5ee52dfdd.js": "/friends_app/precache-manifest.5352d40824b2b9b96acbfec5ee52dfdd.js",
+    "service-worker.js": "/friends_app/service-worker.js",
+    "static/css/2.669be4ef.chunk.css.map": "/friends_app/static/css/2.669be4ef.chunk.css.map",
+    "static/css/main.b88fa1a1.chunk.css.map": "/friends_app/static/css/main.b88fa1a1.chunk.css.map",
+    "static/media/semantic.min.css": "/friends_app/static/media/outline-icons.ef60a4f6.woff"
+  }
+}
