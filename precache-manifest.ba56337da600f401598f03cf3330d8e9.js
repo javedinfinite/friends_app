@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "07a39b0fcccd4cb9459d966438e03b6a",
+    "revision": "bad819ad6071b6a79743f75f6c6464ca",
     "url": "/friends_app/index.html"
   },
   {
-    "revision": "fbb08ac12c9c3231eaf2",
+    "revision": "968d5cd277851b5dd6b6",
     "url": "/friends_app/static/css/2.669be4ef.chunk.css"
   },
   {
-    "revision": "065e0e8c5e1201777905",
+    "revision": "3a5419d359704f3f794a",
     "url": "/friends_app/static/css/main.b88fa1a1.chunk.css"
   },
   {
-    "revision": "fbb08ac12c9c3231eaf2",
-    "url": "/friends_app/static/js/2.ba69f704.chunk.js"
+    "revision": "968d5cd277851b5dd6b6",
+    "url": "/friends_app/static/js/2.d8c86177.chunk.js"
   },
   {
-    "revision": "065e0e8c5e1201777905",
-    "url": "/friends_app/static/js/main.0003b410.chunk.js"
+    "revision": "3a5419d359704f3f794a",
+    "url": "/friends_app/static/js/main.893c22cb.chunk.js"
   },
   {
     "revision": "1838464102e6156d382d",
