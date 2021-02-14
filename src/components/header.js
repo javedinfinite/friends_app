@@ -11,7 +11,7 @@ class Header extends Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
-    console.log(this.props.location.pathname.substring(1))
+    // console.log(this.props.location.pathname.substring(1))
     const { activeItem } = this.state
     return (
       <Segment style={{backgroundColor : '#0a3438'}}>

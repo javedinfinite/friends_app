@@ -5,7 +5,7 @@ import SingleVideoView from './SingleVideoView'
 
 class ApjPlayList extends React.Component {
     render() {
-      console.log("data from ApjPlayListVideos : ................",this.props.data)
+    //   console.log("data from ApjPlayListVideos : ................",this.props.data)
 
         return ( 
             // <div>

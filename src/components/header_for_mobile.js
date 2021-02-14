@@ -14,7 +14,7 @@ class SidebarExampleDimmed extends Component {
 
 
     render(){
-        console.log(this.props.location.pathname.substring(1))
+        // console.log(this.props.location.pathname.substring(1))
         const { activeItem } = this.state
         const sidebarStyle = {
             top :'10%',

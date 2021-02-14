@@ -1,61 +1,67 @@
 import React from 'react'
-import { Card, Icon, Image, Divider, Dimmer, Segment, Header, Button } from 'semantic-ui-react'
-import {getVideosList} from '../../actions/apjAcademyActions'
+import { Card, Icon, Image, Dropdown, Divider, Dimmer, Segment, Header, Button } from 'semantic-ui-react'
+import {getVideosList, setVideo} from '../../actions/apjAcademyActions'
 import {connect} from 'react-redux'
 import './index.css';
+import _ from 'lodash'
 
 
 class  SinglePlayListView extends React.Component {
-  state = {}
+  state = {videolist:[]}
 
-  handleShow = () => this.setState({ active: true })
-  handleHide = () => this.setState({ active: false })
-
-  handleOnclick = () => {
-    this.props.dispatch(getVideosList(this.props.item.id, this.props.item));
+  handleOnclick = (playlistId, playlist) => {
+    // this.setState({videolist:[]})
+    this.props.dispatch(getVideosList(playlistId, playlist));
  }
+
+handleOnchange = (e, value ) => {
+  console.log("value....................",value.value)
+  this.props.dispatch(setVideo(value.value));
+}
+
   render () {
 
-    const data = this.props.item;
-    // let photoId = this.props.item.photoId != undefined? this.props.item.photoId : 3;
-    const { active } = this.state
-    const content = (
-      <div>
-        <Icon name='play' />
-        <Header as='h2' inverted> Play All
-        </Header>
-      </div>
-    )
+    var data = this.props.item;
+    const tempList = [];
+    console.log("data data.,,,,",data)
+
+    if(this.props.isLoadingPlaylist){
+      console.log("emplty calling.....")
+      return( 
+        <div>
+          <Dropdown   text={data.snippet.title} fluid scrolling loading={false} search selection options={tempList} />
+          <Divider/>
+        </div>
+      )}
+    else{
     return(
-      <div onClick={this.handleOnclick} >
-        <a  >
-          <Card className="card_class">
-            <Dimmer.Dimmable
-              as={Image}
-              dimmed={active}
-              dimmer={{ active, content }}
-              onMouseEnter={this.handleShow}
-              onMouseLeave={this.handleHide}
-              size='medium'
-              src={data.snippet.thumbnails.maxres.url}
-            />
-              
-            <Card.Content>
-              <Card.Header><Icon name='list layout' /> {data.snippet.title}</Card.Header>
-              <Card.Meta>
-                <p className='id'>Channel Title :  {data.snippet.channelTitle}</p>
-                <p className='email'>Published At : {data.snippet.publishedAt}</p>
-              </Card.Meta>
-            </Card.Content>
-            {/* <Card.Content extra>
-            </Card.Content> */}
-          </Card>
-        </a>
-       <Divider/>
-      </div>
-      )
+
+        <div>
+          <Dropdown onClick={()=>this.handleOnclick(data.id,data)} onChange={this.handleOnchange} text={data.snippet.title} fluid scrolling loading={false} search selection options={this.props.playlistVideoes} />
+          <Divider/>
+        </div>
+
+      )}
   }
 
 }
 
-export default connect()(SinglePlayListView)
+
+const mapStateToProps = (state, props) => {
+  console.log("from singlePlaylistview prop..................",state.apjAcademyReducer.playlistVideoes)
+  return {
+ 
+    playlistVideoes: state.apjAcademyReducer.playlistVideoes.map( 
+      (item) => ({ key: item.id, text: item.snippet.title, value: item})
+    ),
+    // selectedPlaylist:  state.apjAcademyReducer.selectedPlaylist,
+    // selectedVideo:  state.apjAcademyReducer.selectedVideo,
+    // error:  state.apjAcademyReducer.error,
+    isLoadingPlaylist: state.apjAcademyReducer.isLoadingPlaylist
+  };
+};
+
+export default connect(mapStateToProps)(SinglePlayListView);
+
+
+ 

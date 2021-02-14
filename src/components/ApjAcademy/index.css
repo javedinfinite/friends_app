@@ -25,16 +25,24 @@
     margin-left: 10%;
     margin-top: 5vh;
   }
-  /* .v_play{
-    text-align: center;
-  
-  }
   .v_title{
     text-align: center;
   }
   .v_description{
     text-align: center;
+    margin:10px 100px 10px 100px;
   }
+.abcd{
+  color: white !important;
+  cursor: pointer;
+  
+}
+
+  /* .v_play{
+    text-align: center;
+  
+  }
+
   .list-group-item{
     cursor: pointer;
   }

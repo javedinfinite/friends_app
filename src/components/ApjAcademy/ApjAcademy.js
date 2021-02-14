@@ -37,12 +37,12 @@ class ApjAcademy extends Component {
         <Grid celled='internally'>
 
             <Grid.Row>
-              <Grid.Column width={3} style={{ height : '80vh'}}>
+              <Grid.Column width={3}  >
                 
                  <ApjSidebar  data = {YoutubePlayList} />  
                 
               </Grid.Column> 
-              <Grid.Column width={10}>
+              <Grid.Column width={13}>
                 <Grid.Row>
                 <YoutubeSearchBar/>
 
@@ -52,9 +52,9 @@ class ApjAcademy extends Component {
 
                 </Grid.Row>
               </Grid.Column>
-              <Grid.Column width={3}>
+              {/* <Grid.Column width={3}>
                   <ApjRightSidebar  data = {playlistVideoes} /> 
-              </Grid.Column>
+              </Grid.Column> */}
             </Grid.Row>
 
           </Grid>

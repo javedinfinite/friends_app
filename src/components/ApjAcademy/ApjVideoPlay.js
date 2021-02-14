@@ -16,7 +16,7 @@ const ApjVideoPlay = (props) => {
     // console.log("selectedVideo.................",props.data.snippet.resourceId.videoId)
     console.log("selectedVideo from ApjVideoPlay.................",props.data)
     
-    const videoId = props.data.snippet.resourceId.videoId
+    const videoId = props.data.snippet.resourceId.videoId  
     const video = props.data;
     const url = `https://www.youtube.com/embed/${videoId}`;//creating a link of the concern video using video ID so that we can play the video
 

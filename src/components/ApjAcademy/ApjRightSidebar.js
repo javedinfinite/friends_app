@@ -24,7 +24,7 @@ class ApjRightSidebar extends Component {
   componentDidMount(){
     const data = this.props.data.filter(data => (data.id>=1 && data.id<=this.state.offset));
     this.setState({ data: data })
-    console.log("data : ................",this.props.data)
+    // console.log("data : ................",this.props.data)
   }
 
   render() {
